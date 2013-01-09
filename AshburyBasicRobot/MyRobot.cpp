@@ -1,4 +1,7 @@
 #include "WPILib.h"
+#include "Jaguar.h"
+#include "LiveWindow/LiveWindow.h"
+#include "RobotDefs.h"
 
 /**
  * This is a demo program showing the use of the RobotBase class.
@@ -10,13 +13,17 @@ class RobotDemo : public SimpleRobot
 {
 	RobotDrive myRobot; // robot drive system
 	Joystick stick; // only joystick
+	LiveWindow* livewindow;
 
 public:
 	RobotDemo(void):
-		myRobot(1, 2),	// these must be initialized in the same order
-		stick(1)		// as they are declared above.
+		myRobot(LEFT_DRIVE_MOTOR, RIGHT_DRIVE_MOTOR),	// these must be initialized in the same order
+		stick(1),		// as they are declared above.
+		livewindow(NULL)
+	
 	{
 		myRobot.SetExpiration(0.1);
+		livewindow = LiveWindow::GetInstance();
 	}
 
 	/**
@@ -46,7 +53,31 @@ public:
 	/**
 	 * Runs during test mode
 	 */
-	void Test() {
+	void Test() 
+	{
+		if(!livewindow)
+		{
+			livewindow = LiveWindow::GetInstance();
+		}
+		
+		if(!livewindow)
+		{
+			//shouldn't happen, 
+			return;
+		}
+		
+		while(IsTest()& IsEnabled())
+		{
+			livewindow->Run();
+			Wait(0.1);
+		}
+	}
+	void robotInit()
+	{
+		Jaguar* leftMotor = new Jaguar(1);
+		Jaguar* rightMotor = new Jaguar(2);
+		livewindow->AddActuator("Drive train", "left motor" , leftMotor);
+		livewindow->AddActuator("Drive train", "right motor" , rightMotor);
 
 	}
 };

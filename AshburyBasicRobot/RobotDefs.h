@@ -1,0 +1,2 @@
+#define LEFT_DRIVE_MOTOR 1
+#define RIGHT_DRIVE_MOTOR 2
