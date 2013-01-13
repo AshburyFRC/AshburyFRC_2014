@@ -2,6 +2,7 @@
 #include "Jaguar.h"
 #include "LiveWindow/LiveWindow.h"
 #include "RobotDefs.h"
+#include "UserMessagePrinter.h"
 
 /**
  * This is a demo program showing the use of the RobotBase class.
@@ -14,13 +15,13 @@ class RobotDemo : public SimpleRobot
 	RobotDrive myRobot; // robot drive system
 	Joystick stick; // only joystick
 	LiveWindow* livewindow;
+	DriverStationLCD* lcd;
 
 public:
 	RobotDemo(void):
 		myRobot(LEFT_DRIVE_MOTOR, RIGHT_DRIVE_MOTOR),	// these must be initialized in the same order
 		stick(1),		// as they are declared above.
 		livewindow(NULL)
-	
 	{
 		myRobot.SetExpiration(0.1);
 		livewindow = LiveWindow::GetInstance();
@@ -31,6 +32,7 @@ public:
 	 */
 	void Autonomous(void)
 	{
+		UserMessagePrinter::PrintUserMessageLine1("Entering Automode");
 		myRobot.SetSafetyEnabled(false);
 		myRobot.Drive(-0.5, 0.0); 	// drive forwards half speed
 		Wait(2.0); 				//    for 2 seconds
@@ -55,6 +57,8 @@ public:
 	 */
 	void Test() 
 	{
+		UserMessagePrinter::PrintUserMessageLine1("in Test()");
+		
 		if(!livewindow)
 		{
 			livewindow = LiveWindow::GetInstance();
@@ -72,8 +76,12 @@ public:
 			Wait(0.1);
 		}
 	}
-	void robotInit()
+	
+	void RobotInit()
 	{
+		UserMessagePrinter::PrintUserMessageLine1("calling Robot Init");
+		printf("calling Robot Init");
+
 		Jaguar* leftMotor = new Jaguar(1);
 		Jaguar* rightMotor = new Jaguar(2);
 		livewindow->AddActuator("Drive train", "left motor" , leftMotor);
