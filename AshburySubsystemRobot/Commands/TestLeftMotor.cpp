@@ -25,12 +25,13 @@ void TestLeftMotor::Initialize() {
 	timeToExecute = SmartDashboard::GetNumber("Test Left Motor Timeout");
 	speedToExecute = SmartDashboard::GetNumber("Test Left Motor Speed");
 	SetTimeout(timeToExecute);
-	Robot::driveTrain->leftDriveMotor->Set(speedToExecute);
-	printf("initialize test left motor for %f seconds at %f", timeToExecute, speedToExecute);
+	Robot::driveTrain->setMotorOutputs(speedToExecute, 0.0);
+	printf("initialize test left motor for %f seconds at %f\n", timeToExecute, speedToExecute);
+	UserMessagePrinter::PrintUserMessageLine1("Running Test Left Motor Command");
 }
 // Called repeatedly when this Command is scheduled to run
 void TestLeftMotor::Execute() {
-	Robot::driveTrain->leftDriveMotor->Set(speedToExecute);	
+	Robot::driveTrain->setMotorOutputs(speedToExecute, 0.0);	
 }
 // Make this return true when this Command no longer needs to run execute()
 bool TestLeftMotor::IsFinished() {
@@ -38,10 +39,11 @@ bool TestLeftMotor::IsFinished() {
 }
 // Called once after isFinished returns true
 void TestLeftMotor::End() {
-	Robot::driveTrain->leftDriveMotor->Set(0.0);
+	Robot::driveTrain->stop();	
+	UserMessagePrinter::PrintUserMessageLine1("");	
 }
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void TestLeftMotor::Interrupted() {
-	Robot::driveTrain->leftDriveMotor->Set(0.0);
+	End();
 }

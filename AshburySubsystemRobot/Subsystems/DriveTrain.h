@@ -34,6 +34,8 @@ public:
 	
 	void processJoysticksInput(Joystick* left, Joystick* right);
 	
+	void setMotorOutputs( float leftOutput, float rightOutput);
+	
 	void stop();
 	
 private:	
