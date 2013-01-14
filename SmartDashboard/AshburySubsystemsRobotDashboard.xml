@@ -1,7 +1,10 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="Test Left Motor Speed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="17" y="152"/>
+	</widget>
 	<widget field="Robot Drive Type" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
-		<location x="236" y="7"/>
+		<location x="234" y="5"/>
 	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
 		<location x="14" y="15"/>
@@ -16,9 +19,6 @@
 	</widget>
 	<widget field="Test Left Motor Timeout" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="6" y="186"/>
-	</widget>
-	<widget field="Test Left Motor Speed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="14" y="165"/>
 	</widget>
 	<widget field="Test Right Motor" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="31" y="108"/>
