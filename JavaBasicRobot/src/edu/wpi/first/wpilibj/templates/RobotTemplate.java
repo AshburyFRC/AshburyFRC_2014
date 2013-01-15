@@ -30,22 +30,26 @@ public class RobotTemplate extends SimpleRobot {
      * This function is called once each time the robot enters autonomous mode.
      */
     public void autonomous() {
+        System.out.println("entering auto mode");
         chassis.setSafetyEnabled(false);
         chassis.drive(-0.5, 0.0);
         Timer.delay(2.0);
         chassis.drive(0.0,0.0);
+        System.out.println("leaving auto mode");
     }
 
     /**
      * This function is called once each time the robot enters operator control.
      */
     public void operatorControl() {
+        System.out.println("entering teleop mode");
         chassis.setSafetyEnabled(true);
         while (isOperatorControl() && isEnabled() )
         {
             chassis.tankDrive(leftStick, rightStick);
             Timer.delay(0.01);
         }
+        System.out.println("leaving teleop mode");
     }
     
     /**
