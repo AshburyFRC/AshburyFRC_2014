@@ -29,6 +29,8 @@ public class  DriveWithJoysticks extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+       System.out.println("executing drive with jostick command");
+
        Robot.driveTrain.processJoysticksInput( Robot.oi.getJoystick1(), 
 			                         Robot.oi.getJoystick2() );
     }
