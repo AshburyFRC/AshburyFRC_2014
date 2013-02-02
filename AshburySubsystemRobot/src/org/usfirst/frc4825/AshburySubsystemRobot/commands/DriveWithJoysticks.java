@@ -25,12 +25,13 @@ public class  DriveWithJoysticks extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-	UserMessagePrinter.printUserMessageLine1("Running Drive With Joystick Command");        
+	UserMessagePrinter.printUserMessageLine1("Running Drive With Joystick Command"); 
+        
+        System.out.println("initilize drive with joysticks");                
+        
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-       System.out.println("executing drive with jostick command");
-
        Robot.driveTrain.processJoysticksInput( Robot.oi.getJoystick1(), 
 			                         Robot.oi.getJoystick2() );
     }
@@ -41,7 +42,10 @@ public class  DriveWithJoysticks extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.driveTrain.stop();
-	UserMessagePrinter.printUserMessageLine1("");                
+	UserMessagePrinter.printUserMessageLine1("");   
+        
+        System.out.println("end drive with joysticks");                
+        
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run

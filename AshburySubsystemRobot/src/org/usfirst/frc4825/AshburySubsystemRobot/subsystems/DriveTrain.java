@@ -45,6 +45,7 @@ public class DriveTrain extends Subsystem {
     }
     
     public void processJoysticksInput(Joystick left, Joystick right) {
+        
         RobotDriveType driveType = (RobotDriveType)robotDriveChooser.getSelected();
             
         if( driveType == RobotDriveType.TANK_DRIVE ) {
