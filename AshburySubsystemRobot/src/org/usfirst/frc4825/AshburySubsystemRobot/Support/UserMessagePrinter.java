@@ -33,6 +33,8 @@ public class UserMessagePrinter {
     }
     
     private static void printLCDMessage( int line, String message ) {
+        
+        String fixLengthString = message.substring(0, 19);
         DriverStationLCD.Line lineNumber = null;
         switch( line )
         {
@@ -52,7 +54,7 @@ public class UserMessagePrinter {
                 lineNumber = DriverStationLCD.Line.kUser5;
                 break;
         }
-        DriverStationLCD.getInstance().println(lineNumber, 0, message);
+        DriverStationLCD.getInstance().println(lineNumber, 1, fixLengthString);
         DriverStationLCD.getInstance().updateLCD();
     }
 }
