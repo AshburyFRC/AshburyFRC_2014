@@ -48,10 +48,12 @@ public class  TestRightMotor extends Command {
     protected void end() {
         Robot.driveTrain.stop();
         UserMessagePrinter.printUserMessageLine1("");
+        System.out.println("end right motor");
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
         end();
+        System.out.println("right motor interrupted");
     }
 }
