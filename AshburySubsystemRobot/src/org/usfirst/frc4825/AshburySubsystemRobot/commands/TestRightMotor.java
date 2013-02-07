@@ -31,14 +31,14 @@ public class  TestRightMotor extends Command {
         timeToExecute = SmartDashboard.getNumber("Test Right Motor Timeout");
 	speedToExecute = SmartDashboard.getNumber("Test Right Motor Speed");
 	setTimeout(timeToExecute);
-	Robot.driveTrain.setMotorOutputs(speedToExecute, 0.0);
+	Robot.driveTrain.setMotorOutputs(0.0, speedToExecute);
         
 	System.out.println( "initialize test right motor for " + timeToExecute + " seconds at " + speedToExecute );
 	UserMessagePrinter.printUserMessageLine1("Running Test Right Motor Command");        
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.driveTrain.setMotorOutputs(speedToExecute, 0.0);
+        Robot.driveTrain.setMotorOutputs(0.0, speedToExecute);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

@@ -49,10 +49,12 @@ public class DriveTrain extends Subsystem {
         RobotDriveType driveType = (RobotDriveType)robotDriveChooser.getSelected();
             
         if( driveType == RobotDriveType.TANK_DRIVE ) {
-            robotDrive21.tankDrive(left, right);
+            robotDrive21.tankDrive(-1*left.getAxis(Joystick.AxisType.kY),
+                                   -1*right.getAxis(Joystick.AxisType.kY), true);
         }
         else if( driveType == RobotDriveType.ARCADE_DRIVE ) {
-            robotDrive21.arcadeDrive(left);
+            robotDrive21.arcadeDrive( -1*left.getAxis(Joystick.AxisType.kY), 
+                                         left.getAxis(Joystick.AxisType.kX), true);
         }
     }
     public void stop() {
