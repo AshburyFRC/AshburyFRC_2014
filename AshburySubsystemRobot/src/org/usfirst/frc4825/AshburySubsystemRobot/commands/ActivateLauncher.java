@@ -9,6 +9,7 @@
 // it from being updated in th future.
 package org.usfirst.frc4825.AshburySubsystemRobot.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4825.AshburySubsystemRobot.Robot;
 /**
  *
@@ -25,15 +26,13 @@ public class  ActivateLauncher extends Command {
     // Called just before this Command runs the first time
     protected void initialize() 
     {
+        double percentage1 = SmartDashboard.getNumber("Launcher Motor 1 Speed");
+        double percentage2 = SmartDashboard.getNumber("Launcher Motor 2 Speed");
+
         if(Robot.launcher.isMotorOn()==false)
         {
-            Robot.launcher.turnOnLauncher(1.0);
-            System.out.println("Launcher Motor is On");
-        }
-        else if(Robot.launcher.isMotorOn()==true)
-        {
-            Robot.launcher.turnOffLauncher();
-            System.out.println("Launcher Motor is Off");
+            Robot.launcher.turnOnLauncher(percentage1, percentage2);
+            System.out.println("Launcher Motor is On " + percentage1 + "  " + percentage2);
         }
     }
     // Called repeatedly when this Command is scheduled to run
@@ -41,13 +40,19 @@ public class  ActivateLauncher extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
     // Called once after isFinished returns true
     protected void end() {
+        if(Robot.launcher.isMotorOn()==true)
+        {
+            Robot.launcher.turnOffLauncher();
+            System.out.println("Launcher Motor is Off");
+        }
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        end();
     }
 }

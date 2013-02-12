@@ -66,6 +66,7 @@
                     <ide-action name="rebuild"/>
                     <ide-action name="debug"/>
                     <ide-action name="javadoc"/>
+                    <separator/>
                     <action>
                         <label>Sun SPOT-deploy</label>
                         <target>deploy</target>
@@ -74,7 +75,10 @@
                         <label>Sun SPOT-jar-deploy</label>
                         <target>jar-deploy</target>
                     </action>
-                    <separator/>
+                    <action>
+                        <label>BuildRobotJar</label>
+                        <target>jar</target>
+                    </action>
                 </context-menu>
             </view>
             <subprojects/>
