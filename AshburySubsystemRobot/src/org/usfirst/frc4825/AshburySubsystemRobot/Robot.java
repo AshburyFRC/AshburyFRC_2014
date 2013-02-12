@@ -77,13 +77,13 @@ public class Robot extends IterativeRobot {
         if (autonomousCommand != null) autonomousCommand.cancel();
         
         System.out.println("init telop");                
-        
+         
     }
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        Scheduler.getInstance().run();
+        Scheduler.getInstance().run();        
     }
     /**
      * This function called periodically during test mode

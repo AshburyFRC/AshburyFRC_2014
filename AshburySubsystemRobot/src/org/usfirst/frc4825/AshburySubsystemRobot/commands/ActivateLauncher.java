@@ -11,6 +11,7 @@ package org.usfirst.frc4825.AshburySubsystemRobot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4825.AshburySubsystemRobot.Robot;
+import org.usfirst.frc4825.AshburySubsystemRobot.Robot_InstanceField;
 /**
  *
  */
@@ -26,9 +27,8 @@ public class  ActivateLauncher extends Command {
     // Called just before this Command runs the first time
     protected void initialize() 
     {
-        double percentage1 = SmartDashboard.getNumber("Launcher Motor 1 Speed");
-        double percentage2 = SmartDashboard.getNumber("Launcher Motor 2 Speed");
-
+        double percentage1 = Robot_InstanceField.getMotor1Value();
+        double percentage2 = Robot_InstanceField.getMotor2Value();
         if(Robot.launcher.isMotorOn()==false)
         {
             Robot.launcher.turnOnLauncher(percentage1, percentage2);

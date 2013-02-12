@@ -36,7 +36,7 @@ public class Launcher extends Subsystem {
     {
         //launcher 1 motor has to be inverted...
         launcherMotor1.set(-1*percentage1);
-        launcherMotor2.set(percentage2);
+        launcherMotor2.set(-1*percentage2);
         isMotorOn = true;
     }
     public void turnOffLauncher()
@@ -49,4 +49,5 @@ public class Launcher extends Subsystem {
     {
         return isMotorOn;
     }
+    
 }
