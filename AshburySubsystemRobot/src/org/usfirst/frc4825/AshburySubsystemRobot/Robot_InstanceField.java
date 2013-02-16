@@ -21,12 +21,17 @@ public class Robot_InstanceField
     
     public static double getMotor1Value()
     {
-        return SmartDashboard.getNumber("Launcher Motor 1 Speed");
+        return SmartDashboard.getNumber("Launcher Front Motor Speed");
     }
     
     public static double getMotor2Value()
     {
-        return SmartDashboard.getNumber("Launcher Motor 2 Speed");
-    }    
+        return SmartDashboard.getNumber("Launcher Back Motor Speed");
+    }
+    
+    public static double getLauncherSpinUpTime()
+    {
+        return SmartDashboard.getNumber("Launcher Spin Up Time");        
+    }
 
 }
