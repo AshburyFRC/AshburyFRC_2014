@@ -29,7 +29,7 @@ public class DriveTrain extends Subsystem {
     public DriveTrain() {
         robotDriveChooser = new SendableChooser();
 	robotDriveChooser.addDefault("Tank Drive", RobotDriveType.TANK_DRIVE);
-	robotDriveChooser.addDefault("Arcade Drive", RobotDriveType.ARCADE_DRIVE);
+	robotDriveChooser.addObject("Arcade Drive", RobotDriveType.ARCADE_DRIVE);
 	SmartDashboard.putData("Robot Drive Type", robotDriveChooser);        
     }
     

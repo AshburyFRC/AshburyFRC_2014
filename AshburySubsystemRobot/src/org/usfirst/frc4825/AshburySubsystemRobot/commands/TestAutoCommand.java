@@ -15,10 +15,15 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class LoadAndChamberFrisbee extends CommandGroup {
+public class TestAutoCommand extends CommandGroup {
     
-    public  LoadAndChamberFrisbee() {
-        addSequential( new LoadLauncher() );
-        addSequential( new ChamberFrisbee() );
+    public  TestAutoCommand() {
+        addSequential(new TurnOnLauncher());
+        addSequential(new LoadAndChamberFrisbee());
+        addSequential(new DelayCommand(1.0));
+        addSequential(new LoadAndChamberFrisbee());
+        addSequential(new DelayCommand(1.0));
+        addSequential(new LoadAndChamberFrisbee());
+        addSequential(new TurnOffLauncher());        
     }
 }

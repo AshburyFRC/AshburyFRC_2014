@@ -9,10 +9,11 @@
 // it from being updated in th future.
 package org.usfirst.frc4825.AshburySubsystemRobot.subsystems;
 import org.usfirst.frc4825.AshburySubsystemRobot.RobotMap;
-import org.usfirst.frc4825.AshburySubsystemRobot.commands.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc4825.AshburySubsystemRobot.Robot;
 import org.usfirst.frc4825.AshburySubsystemRobot.Robot_InstanceField;
+import org.usfirst.frc4825.AshburySubsystemRobot.Support.MotorDirectionType;
 /**
  *
  */
@@ -36,9 +37,18 @@ public class Launcher extends Subsystem {
     
     public void turnOnLauncher( double percentage1, double percentage2 )
     {
+        double direction = 1.0;
+        MotorDirectionType directionType = (MotorDirectionType)Robot.oi.reverseModeChooser.getSelected();
+            
+        if( directionType == MotorDirectionType.FORWARD_DIRECTION ) {
+            direction = 1.0;
+        }
+        else if (directionType == MotorDirectionType.REVERSE_DIRECTION ) {
+            direction = -1.0;
+        }
         //launcher 1 motor has to be inverted...
-        launcherMotor1.set(-1*percentage1);
-        launcherMotor2.set(-1*percentage2);
+        launcherMotor1.set(-1*direction*percentage1);
+        launcherMotor2.set(-1*direction*percentage2);
         isMotorOn = true;
         spinUpTimer.start();
     }

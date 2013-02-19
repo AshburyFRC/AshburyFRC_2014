@@ -12,6 +12,8 @@ import org.usfirst.frc4825.AshburySubsystemRobot.RobotMap;
 import org.usfirst.frc4825.AshburySubsystemRobot.commands.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc4825.AshburySubsystemRobot.Robot;
+import org.usfirst.frc4825.AshburySubsystemRobot.Support.MotorDirectionType;
 /**
  *
  */
@@ -33,7 +35,17 @@ public class ConveyorBelt extends Subsystem {
     }
     public void turnOnBelt( double percentage )
     {
-        beltMotor.set(percentage);
+        double direction = 1.0;
+        MotorDirectionType directionType = (MotorDirectionType)Robot.oi.reverseModeChooser.getSelected();
+            
+        if( directionType == MotorDirectionType.FORWARD_DIRECTION ) {
+            direction = 1.0;
+        }
+        else if (directionType == MotorDirectionType.REVERSE_DIRECTION ) {
+            direction = -1.0;
+        }
+        
+        beltMotor.set(direction*percentage);
         beltMotorOn = true;
     }
     public void turnOffBelt()
