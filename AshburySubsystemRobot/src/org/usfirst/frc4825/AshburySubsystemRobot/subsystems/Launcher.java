@@ -25,6 +25,10 @@ public class Launcher extends Subsystem {
     
     private boolean isMotorOn = false;
     private Timer spinUpTimer = new Timer();
+    private double desiredLauncher1Speed = 0.0;
+    private double desiredLauncher2Speed = 0.0;
+    private boolean isSpinningUp = false;
+    
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void initDefaultCommand() {
@@ -46,10 +50,14 @@ public class Launcher extends Subsystem {
         else if (directionType == MotorDirectionType.REVERSE_DIRECTION ) {
             direction = -1.0;
         }
-        //launcher 1 motor has to be inverted...
-        launcherMotor1.set(-1*direction*percentage1);
-        launcherMotor2.set(-1*direction*percentage2);
+        
+        desiredLauncher1Speed = -1*direction*percentage1;
+        desiredLauncher2Speed = -1*direction*percentage2;
+        
+        launcherMotor1.set(-1*direction*Robot_InstanceField.getLauncherSpinUpPercent());
+        launcherMotor2.set(-1*direction*Robot_InstanceField.getLauncherSpinUpPercent());
         isMotorOn = true;
+        isSpinningUp = true;
         spinUpTimer.start();
     }
     public void turnOffLauncher()
@@ -59,6 +67,7 @@ public class Launcher extends Subsystem {
         isMotorOn = false;
         spinUpTimer.reset();
         spinUpTimer.stop();
+        isSpinningUp = false;
     }
     public boolean isMotorOn()
     {
@@ -67,11 +76,22 @@ public class Launcher extends Subsystem {
     
     public boolean isMotorAtSpeed()
     {
-        if( isMotorOn() && spinUpTimer.get() > Robot_InstanceField.getLauncherSpinUpTime() ) {
+        if( isMotorOn() && isSpinningUp == false ) {
             return true;
         }
         else {
             return false;
+        }
+    }
+    
+    public void tick() {
+        if( isSpinningUp && spinUpTimer.get() > Robot_InstanceField.getLauncherSpinUpTime() ) {
+            isSpinningUp = false;
+            spinUpTimer.reset();
+            spinUpTimer.stop();
+            launcherMotor1.set(desiredLauncher1Speed);
+            launcherMotor2.set(desiredLauncher2Speed);
+            System.out.println("launcher is at speed...");
         }
     }
     

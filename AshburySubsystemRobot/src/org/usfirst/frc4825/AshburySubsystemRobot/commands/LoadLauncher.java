@@ -32,6 +32,7 @@ public class  LoadLauncher extends Command {
         if( Robot.conveyorBelt.isFrisbeeLoaded() == false ) {
             System.out.println("loading Frisbee...");
             if( Robot.conveyorBelt.beltMotorOn() == false ) {
+                System.out.println("turning belt motor on.");
                 Robot.conveyorBelt.turnOnBelt(Robot_InstanceField.getBeltValue());
             }
         } 
@@ -52,6 +53,7 @@ public class  LoadLauncher extends Command {
     // Called once after isFinished returns true
     protected void end() {
         if( Robot.conveyorBelt.beltMotorOn() == true ) {
+            System.out.println("turning belt motor off.");
             Robot.conveyorBelt.turnOffBelt();
         }
         

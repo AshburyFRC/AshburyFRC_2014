@@ -18,12 +18,20 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class TestAutoCommand extends CommandGroup {
     
     public  TestAutoCommand() {
+        addSequential(new PrintDebugCommand("begin auto command"));
+        addSequential(new PrintDebugCommand("turn on launcher"));
         addSequential(new TurnOnLauncher());
+        addSequential(new AutoFrisbeeLoadDelayCommand());
+        addSequential(new PrintDebugCommand("load frisbee 1"));
         addSequential(new LoadAndChamberFrisbee());
-        addSequential(new DelayCommand(1.0));
+        addSequential(new AutoFrisbeeLoadDelayCommand());
+        addSequential(new PrintDebugCommand("load frisbee 2"));
         addSequential(new LoadAndChamberFrisbee());
-        addSequential(new DelayCommand(1.0));
+        addSequential(new AutoFrisbeeLoadDelayCommand());
+        addSequential(new PrintDebugCommand("load frisbee 3"));
         addSequential(new LoadAndChamberFrisbee());
         addSequential(new TurnOffLauncher());        
+        addSequential(new PrintDebugCommand("turn off launcher"));
+        addSequential(new PrintDebugCommand("end auto command"));
     }
 }

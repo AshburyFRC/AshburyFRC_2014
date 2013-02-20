@@ -33,5 +33,16 @@ public class Robot_InstanceField
     {
         return SmartDashboard.getNumber("Launcher Spin Up Time");        
     }
-
+    
+    public static double getLauncherSpinUpPercent()
+    {
+        return SmartDashboard.getNumber("Launcher Spin Up Percent");        
+    }
+    
+    public static double getAutoLoadDelay()
+    {
+        return SmartDashboard.getNumber("Auto Load Delay");        
+    }
+    
+        
 }
