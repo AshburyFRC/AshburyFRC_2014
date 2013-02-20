@@ -46,7 +46,7 @@ public class RobotTemplate extends SimpleRobot {
         chassis.setSafetyEnabled(true);
         while (isOperatorControl() && isEnabled() )
         {
-            chassis.tankDrive(leftStick, rightStick);
+            chassis.arcadeDrive(leftStick);
             Timer.delay(0.01);
         }
         System.out.println("leaving teleop mode");
