@@ -59,7 +59,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whileHeld
+          value: whenReleased
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: ['1', '2', '3', '4']
@@ -108,4 +108,4 @@ Properties:
     name: Export Commands, validators: null, value: true}
   Java Project Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\mlepard\NetBeansProjects',
     extension: null, folder: true, name: Java Project Directory, validators: null,
-    value: 'C:\AshburyFRC4825\MotorRelayExample'}
+    value: 'C:\AshburyFRC4825'}
