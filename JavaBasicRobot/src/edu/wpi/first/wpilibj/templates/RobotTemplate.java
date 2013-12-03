@@ -7,7 +7,6 @@
 
 package edu.wpi.first.wpilibj.templates;
 
-
 import edu.wpi.first.wpilibj.SimpleRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -31,6 +30,8 @@ public class RobotTemplate extends SimpleRobot {
      */
     public void autonomous() {
         System.out.println("entering auto mode");
+        System.out.println("hello world");
+        
         chassis.setSafetyEnabled(false);
         chassis.drive(-0.5, 0.0);
         Timer.delay(2.0);
