@@ -30,7 +30,7 @@ public class CompressorSubsystem1 extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    public boolean isEnabled(){
+    public boolean isCompressorEnabled(){
         return isOn;//compressor1.enabled();
     }
     public void start(){
