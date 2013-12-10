@@ -12,6 +12,7 @@
 package org.usfirst.frc4825.PlyBoy.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4825.PlyBoy.Robot;
 
 /**
@@ -33,6 +34,7 @@ public class  UpdateRangeFinder extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+           SmartDashboard.putNumber("RangeFinder", Robot.rangeFinder.GetDistanceMilimeters());
     }
 
     // Make this return true when this Command no longer needs to run execute()
