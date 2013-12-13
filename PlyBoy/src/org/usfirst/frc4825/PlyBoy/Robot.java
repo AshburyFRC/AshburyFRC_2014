@@ -55,6 +55,7 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
+		System.out.println("Starting Autonomous Mode");
     }
     /**
      * This function is called periodically during autonomous
@@ -68,6 +69,8 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+		
+		System.out.println("Starting Teleoperated Mode");
     }
     /**
      * This function is called periodically during operator control
