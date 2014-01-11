@@ -44,9 +44,13 @@ public class DriveTrain extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void processJoysticksInput(Joystick left, Joystick right) {
+    public void processJoysticksInput(Joystick stick) {
+        SmartDashboard.putNumber("Left Trigger", stick.getAxis(Joystick.AxisType.kY));
+        SmartDashboard.putNumber("Right Ttrigger", stick.getRawAxis(5));
+            robotDrive21.tankDrive(stick.getRawAxis(5),
+                    stick.getAxis(Joystick.AxisType.kY), true);        
         
-        RobotDriveType driveType = (RobotDriveType)robotDriveChooser.getSelected();
+        /*RobotDriveType driveType = (RobotDriveType)robotDriveChooser.getSelected();
             
         if( driveType == RobotDriveType.TANK_DRIVE ) {
             robotDrive21.tankDrive(right.getAxis(Joystick.AxisType.kY),
@@ -55,7 +59,7 @@ public class DriveTrain extends Subsystem {
         else if( driveType == RobotDriveType.ARCADE_DRIVE ) {
             robotDrive21.arcadeDrive( -1*left.getAxis(Joystick.AxisType.kY), 
                                          left.getAxis(Joystick.AxisType.kX), true);
-        }
+        }*/
     }
     public void stop() {
             robotDrive21.drive(0.0,0.0);
