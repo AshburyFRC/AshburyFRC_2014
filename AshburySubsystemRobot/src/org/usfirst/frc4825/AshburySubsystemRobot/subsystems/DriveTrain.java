@@ -48,15 +48,15 @@ public class DriveTrain extends Subsystem {
         
         RobotDriveType driveType = (RobotDriveType)robotDriveChooser.getSelected();
             
-        if( driveType == RobotDriveType.ARCADE_DRIVE ) {
+        if( driveType == RobotDriveType.TANK_DRIVE ) {
+            robotDrive21.tankDrive(stick1.getAxis(Joystick.AxisType.kY),
+                                   stick2.getAxis(Joystick.AxisType.kY), true);
+        }
+        else if( driveType == RobotDriveType.ARCADE_DRIVE ) {
             SmartDashboard.putNumber("Left Trigger", stick1.getAxis(Joystick.AxisType.kY));
             SmartDashboard.putNumber("Right Ttrigger", stick1.getRawAxis(5));
             robotDrive21.tankDrive(stick1.getRawAxis(5),
-                    stick1.getAxis(Joystick.AxisType.kY), true);
-        }
-        else if( driveType == RobotDriveType.TANK_DRIVE ) {
-                        robotDrive21.tankDrive(stick1.getAxis(Joystick.AxisType.kY),
-                                   stick2.getAxis(Joystick.AxisType.kY), true);
+                                   stick1.getAxis(Joystick.AxisType.kY), true);
         }
     }
     public void stop() {
