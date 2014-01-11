@@ -28,8 +28,8 @@ public class DriveTrain extends Subsystem {
     
     public DriveTrain() {
         robotDriveChooser = new SendableChooser();
-	robotDriveChooser.addDefault("Tank Drive", RobotDriveType.TANK_DRIVE);
-	robotDriveChooser.addObject("Arcade Drive", RobotDriveType.ARCADE_DRIVE);
+	robotDriveChooser.addDefault("Drive With Two Joysticks", RobotDriveType.TANK_DRIVE);
+	robotDriveChooser.addObject("Drive With XBox Controller", RobotDriveType.ARCADE_DRIVE);
 	SmartDashboard.putData("Robot Drive Type", robotDriveChooser);        
     }
     
@@ -44,22 +44,20 @@ public class DriveTrain extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void processJoysticksInput(Joystick stick) {
-        SmartDashboard.putNumber("Left Trigger", stick.getAxis(Joystick.AxisType.kY));
-        SmartDashboard.putNumber("Right Ttrigger", stick.getRawAxis(5));
-            robotDrive21.tankDrive(stick.getRawAxis(5),
-                    stick.getAxis(Joystick.AxisType.kY), true);        
+    public void processJoysticksInput(Joystick stick1, Joystick stick2) {     
         
-        /*RobotDriveType driveType = (RobotDriveType)robotDriveChooser.getSelected();
+        RobotDriveType driveType = (RobotDriveType)robotDriveChooser.getSelected();
             
-        if( driveType == RobotDriveType.TANK_DRIVE ) {
-            robotDrive21.tankDrive(right.getAxis(Joystick.AxisType.kY),
-                                   left.getAxis(Joystick.AxisType.kY), true);
+        if( driveType == RobotDriveType.ARCADE_DRIVE ) {
+            SmartDashboard.putNumber("Left Trigger", stick1.getAxis(Joystick.AxisType.kY));
+            SmartDashboard.putNumber("Right Ttrigger", stick1.getRawAxis(5));
+            robotDrive21.tankDrive(stick1.getRawAxis(5),
+                    stick1.getAxis(Joystick.AxisType.kY), true);
         }
-        else if( driveType == RobotDriveType.ARCADE_DRIVE ) {
-            robotDrive21.arcadeDrive( -1*left.getAxis(Joystick.AxisType.kY), 
-                                         left.getAxis(Joystick.AxisType.kX), true);
-        }*/
+        else if( driveType == RobotDriveType.TANK_DRIVE ) {
+                        robotDrive21.tankDrive(stick1.getAxis(Joystick.AxisType.kY),
+                                   stick2.getAxis(Joystick.AxisType.kY), true);
+        }
     }
     public void stop() {
             robotDrive21.drive(0.0,0.0);
