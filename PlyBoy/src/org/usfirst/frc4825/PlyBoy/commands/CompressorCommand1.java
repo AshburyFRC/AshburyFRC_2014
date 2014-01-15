@@ -24,19 +24,25 @@ public class  CompressorCommand1 extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        if(Robot.compressorSubsystem1.isCompressorEnabled()){
-            Robot.compressorSubsystem1.stop();
-        }
-        else{
-            Robot.compressorSubsystem1.start();
-        }
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if(Robot.compressorSubsystem1.atPressure() == false){
+            if(Robot.compressorSubsystem1.compressorOn()){
+                Robot.compressorSubsystem1.turnOff();
+                System.out.println("Turning Off");
+            }
+        }
+        else{
+            if(!Robot.compressorSubsystem1.compressorOn()){
+                Robot.compressorSubsystem1.turnOn();
+                System.out.println("Turning On");
+            }
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
     // Called once after isFinished returns true
     protected void end() {
