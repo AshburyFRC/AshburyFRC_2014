@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.usfirst.frc4825.CompressorBot.subsystems;
-import org.usfirst.frc4825.CompressorBot.RobotMap;
-import org.usfirst.frc4825.CompressorBot.commands.*;
+package org.usfirst.frc4825.PlyBoy.subsystems;
+import org.usfirst.frc4825.PlyBoy.RobotMap;
+import org.usfirst.frc4825.PlyBoy.commands.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 /**
