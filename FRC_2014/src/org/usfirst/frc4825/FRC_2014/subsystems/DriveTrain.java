@@ -55,8 +55,8 @@ public class DriveTrain extends Subsystem {
         } else if (driveType == RobotDriveType.ARCADE_DRIVE) {
             SmartDashboard.putNumber("Left Trigger", stick1.getAxis(Joystick.AxisType.kY));
             SmartDashboard.putNumber("Right Ttrigger", stick1.getRawAxis(5));
-            robotDrive41.tankDrive(stick1.getRawAxis(5),
-                    stick1.getAxis(Joystick.AxisType.kY), true);
+            robotDrive41.arcadeDrive(stick1.getAxis(Joystick.AxisType.kY),
+                    -stick1.getRawAxis(4), true);
         }
     }
 
