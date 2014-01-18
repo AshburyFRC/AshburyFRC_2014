@@ -34,7 +34,7 @@ Children:
             default: '1'
             name: Output Channel (PWM)
             validators: &id005 [PWMOutput]
-            value: '1'
+            value: '4'
       - Name: Left Motor 2
         Base: Speed Controller
         Children: []
@@ -56,7 +56,7 @@ Children:
             default: '1'
             name: Output Channel (PWM)
             validators: *id005
-            value: '4'
+            value: '3'
       - Name: Right Motor 1
         Base: Speed Controller
         Children: []
@@ -78,7 +78,7 @@ Children:
             default: '1'
             name: Output Channel (PWM)
             validators: *id005
-            value: '3'
+            value: '2'
       - Name: Right Motor 2
         Base: Speed Controller
         Children: []
@@ -100,7 +100,7 @@ Children:
             default: '1'
             name: Output Channel (PWM)
             validators: *id005
-            value: '5'
+            value: '1'
       Properties:
         Sensitivity: !!robotbuilder.data.properties.DoubleProperty {default: 0.5,
           name: Sensitivity, validators: null, value: 0.5}
@@ -224,7 +224,7 @@ Children:
   Properties: {}
 Properties:
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-    name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
+    name: Autonomous Command, type: Command, validators: null, value: astral cmd}
   Wiring File: !!robotbuilder.data.properties.FileProperty {default: '', extension: html,
     folder: false, name: Wiring File, validators: null, value: ''}
   C++ Windriver Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Windriver\workspace',
