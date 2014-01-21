@@ -29,7 +29,7 @@ public class DriveBackwards extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(SmartDashboard.getNumber("Time of driving backward", 0));
+        setTimeout(SmartDashboard.getNumber("Time of driving backward"));
 
         UserMessagePrinter.printUserMessageLine1("moving backward");
         System.out.println("initilize backward drive");

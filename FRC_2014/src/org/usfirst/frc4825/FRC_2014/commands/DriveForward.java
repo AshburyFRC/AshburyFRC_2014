@@ -29,7 +29,7 @@ public class DriveForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(SmartDashboard.getNumber("Time of driving forward", 0));
+        setTimeout(SmartDashboard.getNumber("Time of driving forward"));
 
         UserMessagePrinter.printUserMessageLine1("moving forward");
         System.out.println("initilize forward drive");

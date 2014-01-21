@@ -27,7 +27,7 @@ public class Wait extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(SmartDashboard.getNumber("Time of waiting", 0));
+        setTimeout(SmartDashboard.getNumber("Time of waiting"));
     }
 
     // Called repeatedly when this Command is scheduled to run
