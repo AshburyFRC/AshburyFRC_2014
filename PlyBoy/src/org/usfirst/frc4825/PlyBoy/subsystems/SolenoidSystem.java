@@ -24,10 +24,12 @@ public class SolenoidSystem extends Subsystem {
     //Setter Methods
     public void setSolenoidOn(){
         solenoid1.set(true);
+        System.out.println("Piston Extended");
     }
     
     public void setSolenoidOff(){
         solenoid1.set(false);
+        System.out.println("Piston Retraacted");
     }
     
 }
