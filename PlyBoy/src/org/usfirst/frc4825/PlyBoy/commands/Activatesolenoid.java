@@ -3,9 +3,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4825.PlyBoy.Robot;
 import org.usfirst.frc4825.PlyBoy.subsystems.SolenoidSystem;
-
-
-
 public class  Activatesolenoid extends Command {
     //Declaring Data
     boolean solenoidCommand = true;//For use without calling the meathod repetitively

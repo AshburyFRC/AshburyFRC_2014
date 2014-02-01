@@ -4,8 +4,6 @@ import org.usfirst.frc4825.PlyBoy.RobotMap;
 import org.usfirst.frc4825.PlyBoy.commands.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
-
-
 public class SolenoidSystem extends Subsystem {
     
     //Making the solenoid
@@ -33,4 +31,3 @@ public class SolenoidSystem extends Subsystem {
     }
     
 }
-
