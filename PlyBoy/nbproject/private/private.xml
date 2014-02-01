@@ -5,9 +5,8 @@
         <group>
             <file>file:/C:/AshburyFRC4825/PlyBoy/src/org/usfirst/frc4825/PlyBoy/subsystems/SolenoidSystem.java</file>
             <file>file:/C:/AshburyFRC4825/PlyBoy/src/org/usfirst/frc4825/PlyBoy/OI.java</file>
-            <file>file:/C:/AshburyFRC4825/PlyBoy/src/org/usfirst/frc4825/PlyBoy/commands/Activatesolenoid.java</file>
             <file>file:/C:/AshburyFRC4825/PlyBoy/src/org/usfirst/frc4825/PlyBoy/Robot.java</file>
-            <file>file:/C:/AshburyFRC4825/PlyBoy/src/org/usfirst/frc4825/PlyBoy/RobotMap.java</file>
+            <file>file:/C:/AshburyFRC4825/PlyBoy/src/org/usfirst/frc4825/PlyBoy/commands/Activatesolenoid.java</file>
         </group>
     </open-files>
 </project-private>
