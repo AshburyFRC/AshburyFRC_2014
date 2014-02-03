@@ -16,6 +16,8 @@ import org.usfirst.frc4825.PlyBoy.commands.*;
 import edu.wpi.first.wpilibj.*;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc4825.PlyBoy.Robot;
 
 
 /**
@@ -37,6 +39,9 @@ public class Beltsystem extends Subsystem {
 	
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    }
+    public void TurnOnMotor(){
+        motor.set(SmartDashboard.getNumber("Set Motor Speed"));
     }
 }
 
