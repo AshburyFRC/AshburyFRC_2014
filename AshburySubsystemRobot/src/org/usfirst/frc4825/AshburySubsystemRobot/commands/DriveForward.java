@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class DriveForward extends Command {
-    double time = 0.0;
+    double time;
     public DriveForward() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
