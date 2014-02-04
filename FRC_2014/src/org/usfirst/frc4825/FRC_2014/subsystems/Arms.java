@@ -17,7 +17,7 @@ public class Arms extends Subsystem {
     }
     
     //Sets arm position
-    public void moveArm(){
+    public void moveArm(ArmPos armPosToSet){
         /*if(ArmPos.value == ArmPos.UP){
             armPositionSolenoid.set(false);
         }
