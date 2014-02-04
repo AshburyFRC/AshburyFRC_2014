@@ -32,4 +32,25 @@ public class Hammer extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    
+    public boolean isAtLaunch(){
+        return false;
+    }
+    
+    public void setMotor(float value){
+    }
+    
+    public boolean isAtReset(){
+        return false;
+    }
+    
+    public void resetLatch(){
+    }
+    
+    public void releaseLatch(){ 
+    }
+    
+    public boolean isLatchReady(){
+        return false;
+    }
 }
