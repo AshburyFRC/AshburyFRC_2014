@@ -225,7 +225,7 @@ Children:
   - Name: Arms
     Base: Subsystem
     Children:
-    - Name: ArmBeltMotorController
+    - Name: LeftArmBeltMotorController
       Base: Speed Controller
       Children: []
       Properties:
@@ -247,6 +247,28 @@ Children:
           name: Output Channel (PWM)
           validators: *id005
           value: '6'
+    - Name: RightArmBeltMotorController
+      Base: Speed Controller
+      Children: []
+      Properties:
+        Output Module (Digital): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id001
+          default: '1'
+          name: Output Module (Digital)
+          validators: *id002
+          value: '1'
+        Type: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id003
+          default: Victor
+          name: Type
+          validators: null
+          value: Victor
+        Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id004
+          default: '1'
+          name: Output Channel (PWM)
+          validators: *id005
+          value: '7'
     - Name: ArmPositionSolenoid
       Base: Solenoid
       Children: []
