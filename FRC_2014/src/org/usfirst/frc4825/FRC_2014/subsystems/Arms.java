@@ -11,19 +11,25 @@ public class Arms extends Subsystem {
     SpeedController leftArmBeltMotorController = RobotMap.armsLeftArmBeltMotorController;
     SpeedController rightArmBeltMotorController = RobotMap.armsRightArmBeltMotorController;
     Solenoid armPositionSolenoid = RobotMap.armsArmPositionSolenoid;
-    
+    ArmPos currentArmPos = ArmPos.UP;
+            
     public void initDefaultCommand() {
     
     }
     
     //Sets arm position
     public void moveArm(ArmPos armPosToSet){
-        /*if(ArmPos.value == ArmPos.UP){
-            armPositionSolenoid.set(false);
+        if(armPosToSet == currentArmPos){
+            
         }
-        else{
+        else if(armPosToSet == ArmPos.UP){
             armPositionSolenoid.set(true);
-        }*/
+            currentArmPos = ArmPos.UP;
+        }
+        else if(armPosToSet == ArmPos.DOWN){
+            armPositionSolenoid.set(false);
+            currentArmPos = ArmPos.DOWN;
+        }
         
     }
     
