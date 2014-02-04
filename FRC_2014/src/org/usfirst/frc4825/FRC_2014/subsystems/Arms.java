@@ -12,6 +12,7 @@ public class Arms extends Subsystem {
     SpeedController rightArmBeltMotorController = RobotMap.armsRightArmBeltMotorController;
     Solenoid armPositionSolenoid = RobotMap.armsArmPositionSolenoid;
     ArmPos currentArmPos = ArmPos.UP;
+    double currentMotorSpeed = 0;
             
     public void initDefaultCommand() {
     
@@ -38,25 +39,49 @@ public class Arms extends Subsystem {
     
     //Sets motor speed
     public void setMotorSpeed(double motorSpeedToSet){
-        //if(motorSpeedToSet == )
+        if(motorSpeedToSet == currentMotorSpeed){
+            System.out.println("Error : Motor already at requested speed");
+        }
+        else if (motorSpeedToSet > 1.0){
+            System.out.println("Error : Motor speed imput cannot be greater than 1.0");
+        }
+        else if (motorSpeedToSet < -1.0){
+            System.out.println("Error : Motor speed imput cannot be less that -1.0");
+        }
+        else{
+            leftArmBeltMotorController.set(motorSpeedToSet);
+            rightArmBeltMotorController.set(motorSpeedToSet);
+            currentMotorSpeed = motorSpeedToSet;
+        }
     }
     
     //Returns Arm Position
     public ArmPos getArmPos(){
-        return ArmPos.DOWN;
+        return currentArmPos;
     }
     
     //Returns true if arm is up
     public boolean isArmUp(){
-        return false;
+        if(currentArmPos == ArmPos.UP){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
+    //Returns true if arm is down
     public boolean isArmDown(){
-        return false;
+        if(currentArmPos == ArmPos.DOWN){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
     //Gives Motor Speed
     public double getMotorSpeed(){
-        return 0.5;
+        return currentMotorSpeed;
     }
 }
