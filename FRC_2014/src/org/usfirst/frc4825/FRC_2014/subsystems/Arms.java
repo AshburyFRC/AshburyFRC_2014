@@ -4,8 +4,10 @@ import org.usfirst.frc4825.FRC_2014.RobotMap;
 import org.usfirst.frc4825.FRC_2014.commands.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc4825.FRC_2014.Support.ArmPos;
 public class Arms extends Subsystem {
-    // Declaring objects
+    
+    //Declaring objects
     SpeedController leftArmBeltMotorController = RobotMap.armsLeftArmBeltMotorController;
     SpeedController rightArmBeltMotorController = RobotMap.armsRightArmBeltMotorController;
     Solenoid armPositionSolenoid = RobotMap.armsArmPositionSolenoid;
@@ -16,6 +18,12 @@ public class Arms extends Subsystem {
     
     //Sets arm position
     public void moveArm(){
+        /*if(ArmPos.value == ArmPos.UP){
+            armPositionSolenoid.set(false);
+        }
+        else{
+            armPositionSolenoid.set(true);
+        }*/
         
     }
     
@@ -25,8 +33,8 @@ public class Arms extends Subsystem {
     }
     
     //Returns Arm Position
-    public void getArmPos(){
-        
+    public ArmPos getArmPos(){
+        return ArmPos.DOWN;
     }
     
     //Returns true if arm is up
