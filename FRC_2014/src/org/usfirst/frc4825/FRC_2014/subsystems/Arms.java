@@ -20,7 +20,7 @@ public class Arms extends Subsystem {
     //Sets arm position
     public void moveArm(ArmPos armPosToSet){
         if(armPosToSet == currentArmPos){
-            
+            System.out.println("Error : Arm Already At Position");
         }
         else if(armPosToSet == ArmPos.UP){
             armPositionSolenoid.set(true);
@@ -30,12 +30,15 @@ public class Arms extends Subsystem {
             armPositionSolenoid.set(false);
             currentArmPos = ArmPos.DOWN;
         }
+        else{
+            System.out.println("Unknown Error In moveArm()");
+        }
         
     }
     
     //Sets motor speed
-    public void setMotorSpeed(){
-        
+    public void setMotorSpeed(double motorSpeedToSet){
+        //if(motorSpeedToSet == )
     }
     
     //Returns Arm Position
@@ -45,6 +48,10 @@ public class Arms extends Subsystem {
     
     //Returns true if arm is up
     public boolean isArmUp(){
+        return false;
+    }
+    
+    public boolean isArmDown(){
         return false;
     }
     
