@@ -10,6 +10,7 @@
 package org.usfirst.frc4825.FRC_2014.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4825.FRC_2014.Robot;
+import org.usfirst.frc4825.FRC_2014.Support.ArmPos;
 /**
  *
  */
@@ -24,16 +25,21 @@ public class  lowerArm extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        System.out.println("Initialize lowerArm");
+        if (!Robot.arms.isArmDown()){
+            Robot.arms.moveArm(ArmPos.DOWN);
+        }
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Robot.arms.isArmDown();
     }
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("End lowerArm");
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run

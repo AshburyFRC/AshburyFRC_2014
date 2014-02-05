@@ -37,7 +37,7 @@ public class Hammer extends Subsystem {
         return false;
     }
     
-    public void setMotor(float value){
+    public void setMotor(double value){
     }
     
     public boolean isAtReset(){

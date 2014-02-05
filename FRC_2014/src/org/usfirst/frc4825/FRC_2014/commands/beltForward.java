@@ -9,6 +9,7 @@
 // it from being updated in the future.
 package org.usfirst.frc4825.FRC_2014.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4825.FRC_2014.Robot;
 /**
  *
@@ -24,6 +25,8 @@ public class  beltForward extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        System.out.println("Initialize beltForward");
+        Robot.arms.setMotorSpeed(SmartDashboard.getNumber("Arm Motor Speed"));
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {

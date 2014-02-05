@@ -10,6 +10,7 @@
 package org.usfirst.frc4825.FRC_2014.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4825.FRC_2014.Robot;
+import org.usfirst.frc4825.FRC_2014.RobotMap;
 /**
  *
  */
@@ -23,6 +24,8 @@ public class  refuelPneumatics extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        System.out.println("Initialise refuelPneumatics");
+        RobotMap.cmpr.start();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -33,6 +36,7 @@ public class  refuelPneumatics extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
+        //System.out.println("End refuelPneumatics");
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run

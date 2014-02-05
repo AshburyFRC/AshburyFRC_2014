@@ -9,6 +9,7 @@
 // it from being updated in the future.
 package org.usfirst.frc4825.FRC_2014.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4825.FRC_2014.Robot;
 /**
  *
@@ -24,16 +25,21 @@ public class  resetLatch extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        System.out.println("Initialize resetLatch");
+        if (!Robot.hammer.isAtReset()){
+            Robot.hammer.setMotor(-SmartDashboard.getNumber("Hammer Motor Speed", 0.5));
+        }
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Robot.hammer.isAtReset();
     }
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("End resetLatch");
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
