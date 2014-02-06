@@ -12,6 +12,7 @@ import org.usfirst.frc4825.FRC_2014.RobotMap;
 import org.usfirst.frc4825.FRC_2014.commands.*; //Not needed
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
@@ -37,44 +38,53 @@ public class Hammer extends Subsystem {
     }
     
     private void setMotor(float value){
-        if(value <= 0 && value >= -1){
+        if(value <= 0.0 && value >= -1.0){
             hammerMotorController.set(value);
         }
         else{
-            System.out.println("Speed exceeded maximum value");
+            System.out.println("Speed exceeded expected value");
         }
     }
     
     public void pullBackHammer(float value){
-        if(!isHammerAtLatch() && value <= 1 && value >= 0){
+        if(!isHammerAtLatch() && value <= 1.0 && value >= 0.0){
             setMotor(value);
             System.out.println("Activate hammer pullBack");
         }
-        else if(value <= 1 && value >= 0){
-            System.out.println("Speed exceeded maximum value");
+        else if(value <= 1.0 && value >= 0.0){
+            System.out.println("Speed exceeded expected value");
+        }
+        else{
+            System.out.println("Hammer at latch");
         }
     }
     
     public void reverseHammer(float value){
-        if(!isHammerAtReset() && value <= 1 && value >= 0){
+        if(!isHammerAtReset() && value <= 1.0 && value >= 0.0){
             setMotor(value*mMotorPolarity);
             System.out.println("Activate hammer reset");
         }
-        else if(value <= 1 && value >= 0){
-            System.out.println("Speed exceeded maximum value");
+        else if(value <= 1.0 && value >= 0.0){
+            System.out.println("Speed exceeded expected value");
+        }
+        else{
+            System.out.println("Hammer at reset");
         }
     }
     
     public boolean isHammerAtLatch(){
-        return hammerLatchSwitch.get();
+        //return hammerLatchSwitch.get();
+        return SmartDashboard.getBoolean("Hammer latch");
     }
     
     public boolean isHammerAtReset(){
-        return shaftResetSwitch.get();
+        //return shaftResetSwitch.get();
+        return SmartDashboard.getBoolean("Hammer reset");
     }
     
     public void readyLatch(){
         if(mIsLatchReady == false){
+            latchSolenoid.set(true);
             mIsLatchReady = true;
             System.out.println("Latch changed to ready position");
         }
@@ -86,12 +96,14 @@ public class Hammer extends Subsystem {
     
     public void releaseLatch(){
         if(isLatchReady() == true){
+            latchSolenoid.set(false);
             mIsLatchReady = false;
             System.out.println("Latch removed from ready position");
         }
     }
     
-    public void stopHammer(){
+    public void stopMotor(){
+        System.out.println("Motor Stopped");
         setMotor(0);
     }
 }
