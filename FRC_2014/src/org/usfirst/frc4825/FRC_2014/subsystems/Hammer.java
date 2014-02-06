@@ -91,7 +91,7 @@ public class Hammer extends Subsystem {
         }
     }
     
-    public void stopMotor(){
+    public void stopHammer(){
         setMotor(0);
     }
 }
