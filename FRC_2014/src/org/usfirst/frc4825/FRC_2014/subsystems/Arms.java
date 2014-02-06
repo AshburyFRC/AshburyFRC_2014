@@ -58,6 +58,11 @@ public class Arms extends Subsystem {
         }
     }
     
+    public void stopMotors(){
+        leftArmBeltMotorController.set(0);
+        rightArmBeltMotorController.set(0);
+    }
+    
     //Returns Arm Position
     public ArmPos getArmPos(){
         if(currentArmPos == ArmPos.DOWN){
