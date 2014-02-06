@@ -61,7 +61,6 @@ public class OI {
         SmartDashboard.putData("beltForward", new beltForward());
         SmartDashboard.putData("readyHammer", new readyHammer());
         SmartDashboard.putData("beltReverse", new beltReverse());
-        SmartDashboard.putData("beltStop", new beltStop());
         SmartDashboard.putData("pullBackHammer", new pullBackHammer());
         SmartDashboard.putData("resetLoadBar", new resetLoadBar());
         SmartDashboard.putData("timedPullBackHammer", new timedPullBackHammer());
