@@ -7,12 +7,13 @@ import org.usfirst.frc4825.FRC_2014.Support.ArmPos;
 public class Arms extends Subsystem {
     
     //Declaring objects
-    SpeedController leftArmBeltMotorController = RobotMap.armsLeftArmBeltMotorController;
-    SpeedController rightArmBeltMotorController = RobotMap.armsRightArmBeltMotorController;
-    Solenoid armPositionSolenoid = RobotMap.armsArmPositionSolenoid;
-    ArmPos currentArmPos = ArmPos.UP;
-    double currentMotorSpeed = 0;
-            
+    private final SpeedController leftArmBeltMotorController = RobotMap.armsLeftArmBeltMotorController;
+    private final SpeedController rightArmBeltMotorController = RobotMap.armsRightArmBeltMotorController;
+    private final Solenoid armPositionSolenoid = RobotMap.armsArmPositionSolenoid;
+    private ArmPos currentArmPos = ArmPos.UP;
+    private double currentMotorSpeed = 0;
+    
+    //Do not delete method, will break code
     public void initDefaultCommand() {
     
     }
