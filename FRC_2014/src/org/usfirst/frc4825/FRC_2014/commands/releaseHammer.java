@@ -25,7 +25,7 @@ public class  releaseHammer extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         System.out.println("Initialize releaseHammer");
-        if (Robot.hammer.isAtLatch()){
+        if (Robot.hammer.isHammerAtLatch()){
             Robot.hammer.releaseLatch();
         }
     }

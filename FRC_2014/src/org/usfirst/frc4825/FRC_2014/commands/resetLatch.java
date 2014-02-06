@@ -26,8 +26,8 @@ public class  resetLatch extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         System.out.println("Initialize resetLatch");
-        if (!Robot.hammer.isAtReset()){
-            Robot.hammer.resetLatch();
+        if (!Robot.hammer.isHammerAtReset()){
+            Robot.hammer.releaseLatch();
         }
     }
     // Called repeatedly when this Command is scheduled to run
@@ -35,7 +35,7 @@ public class  resetLatch extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.hammer.isAtReset();
+        return Robot.hammer.isHammerAtReset();
     }
     // Called once after isFinished returns true
     protected void end() {
