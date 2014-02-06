@@ -37,6 +37,7 @@ public class  beltForward extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("end belt forward");
         Robot.arms.setMotorSpeed(0);
     }
     // Called when another command which requires one or more of the same

@@ -26,7 +26,12 @@ public class raiseArm extends Command {
     protected void initialize() {
         System.out.println("Initialize raiseArm");
         if (!Robot.arms.isArmUp()) {
+            System.out.println("Raising arm");
             Robot.arms.moveArm(ArmPos.UP);
+        }
+        else
+        {
+            System.out.println("Error: arm is already up");
         }
     }
     // Called repeatedly when this Command is scheduled to run

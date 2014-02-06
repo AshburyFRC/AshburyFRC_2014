@@ -27,7 +27,12 @@ public class  lowerArm extends Command {
     protected void initialize() {
         System.out.println("Initialize lowerArm");
         if (!Robot.arms.isArmDown()){
+            System.out.println("lowering arm");
             Robot.arms.moveArm(ArmPos.DOWN);
+        }
+        else
+        {
+            System.out.println("Error: arm is already low");
         }
     }
     // Called repeatedly when this Command is scheduled to run

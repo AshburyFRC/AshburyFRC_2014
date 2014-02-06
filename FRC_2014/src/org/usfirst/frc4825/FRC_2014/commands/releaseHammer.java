@@ -26,7 +26,12 @@ public class  releaseHammer extends Command {
     protected void initialize() {
         System.out.println("Initialize releaseHammer");
         if (Robot.hammer.isHammerAtLatch()){
+            System.out.println("!!!CAUTION!!!RELEASING HAMMER!!!");
             Robot.hammer.releaseLatch();
+        }
+        else
+        {
+            System.out.println("Can't release: not at latch");
         }
     }
     // Called repeatedly when this Command is scheduled to run
@@ -34,7 +39,7 @@ public class  releaseHammer extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
     // Called once after isFinished returns true
     protected void end() {
