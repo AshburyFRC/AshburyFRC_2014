@@ -26,7 +26,7 @@ public class resetLoadBar extends Command {
     protected void initialize() {
         System.out.println("Initialize resetLoadBar()");
         if (!Robot.hammer.isAtReset()) {
-            Robot.hammer.setMotor(-SmartDashboard.getNumber("Hammer Motor Speed"));
+            Robot.hammer.reverseHammer((float)SmartDashboard.getNumber("Hammer Motor Speed"));
         }
     }
     // Called repeatedly when this Command is scheduled to run

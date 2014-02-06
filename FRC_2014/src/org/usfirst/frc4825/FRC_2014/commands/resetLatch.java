@@ -27,7 +27,7 @@ public class  resetLatch extends Command {
     protected void initialize() {
         System.out.println("Initialize resetLatch");
         if (!Robot.hammer.isAtReset()){
-            Robot.hammer.setMotor(-SmartDashboard.getNumber("Hammer Motor Speed", 0.5));
+            Robot.hammer.resetLatch();
         }
     }
     // Called repeatedly when this Command is scheduled to run
