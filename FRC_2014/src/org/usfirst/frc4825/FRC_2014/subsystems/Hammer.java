@@ -51,7 +51,7 @@ public class Hammer extends Subsystem {
             setMotor(value);
             System.out.println("Activate hammer pullBack");
         }
-        else if(value > 1.0 && value < 0.0){
+        else if(value > 1.0 || value < 0.0){
             System.out.println("Speed exceeded expected value");
         }
         else{
@@ -64,11 +64,11 @@ public class Hammer extends Subsystem {
             setMotor(value*mMotorPolarity);
             System.out.println("Activate hammer reset");
         }
-        else if(value > 1.0 && value < 0.0){
-            System.out.println("Speed exceeded expected value");
+        else if(value > 1.0 || value < 0.0){
+            System.out.println("Hammer at reset");
         }
         else{
-            System.out.println("Hammer at reset");
+            System.out.println("Speed exceeded expected value");
         }
     }
     
