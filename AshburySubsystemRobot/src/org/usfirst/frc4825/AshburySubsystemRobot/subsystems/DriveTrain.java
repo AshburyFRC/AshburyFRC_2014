@@ -79,5 +79,13 @@ public class DriveTrain extends Subsystem {
     public void driveBackward() {
         robotDrive21.drive(0.3, 0.0);
     }
+    
+    public void driveLeft(){
+        robotDrive21.drive(0.3, -5);
+    }
+    
+    public void driveRight(){
+        robotDrive21.drive(0.3, 5);
+    }
 
 }
