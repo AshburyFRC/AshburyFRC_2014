@@ -15,8 +15,7 @@ public class DriveTrain extends Subsystem {
     RobotDrive robotDrive21 = RobotMap.driveTrainRobotDrive21;
 
     SendableChooser robotDriveChooser = null;
-    private double rate;
-    
+    private final double drift = -0.1;
     public DriveTrain() {
         robotDriveChooser = new SendableChooser();
         robotDriveChooser.addDefault("Drive With Two Joysticks", RobotDriveType.TANK_DRIVE);
@@ -36,7 +35,7 @@ public class DriveTrain extends Subsystem {
     public void processJoysticksInput(Joystick stick1, Joystick stick2) {
  
         RobotDriveType driveType = (RobotDriveType) robotDriveChooser.getSelected();
-
+        
         if (driveType == RobotDriveType.TANK_DRIVE) {
             robotDrive21.tankDrive(stick1.getAxis(Joystick.AxisType.kY),
                     stick2.getAxis(Joystick.AxisType.kY), true);
@@ -62,12 +61,12 @@ public class DriveTrain extends Subsystem {
         robotDrive21.setLeftRightMotorOutputs(leftOutput, rightOutput);
     }
 
-    public void driveForward() {
-        rate = gyro.getRate();
-        robotDrive21.drive(-0.6, -rate);
-        System.out.println(rate);
-     }
-    
+    public void driveForward(){
+        double angle = gyro.getAngle(); // get current heading
+        System.out.println(angle);
+        robotDrive21.drive(-1, drift+angle*0.03); // drive towards heading 0
+        Timer.delay(0.004);
+    }
     public void resetGyro(){
         gyro.reset();
     }
