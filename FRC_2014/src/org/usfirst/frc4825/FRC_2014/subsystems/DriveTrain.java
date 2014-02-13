@@ -68,6 +68,6 @@ public class DriveTrain extends Subsystem {
         double angle = RobotMap.gyro.getAngle(); // get current heading
         System.out.println(angle);
         robotDrive41.drive(speed, DRIFT+angle*0.03); // drive towards heading 0
-        Timer.delay(0.004);;
+        Timer.delay(0.004);
     }
 }
