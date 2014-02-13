@@ -8,14 +8,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc4825.AshburySubsystemRobot.Support.RobotDriveType;
 
 public class DriveTrain extends Subsystem {
-
-    Gyro gyro = new Gyro(1);
     SpeedController leftDriveMotor = RobotMap.driveTrainLeftDriveMotor;
     SpeedController rightDriveMotor = RobotMap.driveTrainRightDriveMotor;
     RobotDrive robotDrive21 = RobotMap.driveTrainRobotDrive21;
 
     SendableChooser robotDriveChooser = null;
-    private final double drift = -0.1;
+    private final double DRIFT = -0.1;
+    private double speed = 0.0;
+    
     public DriveTrain() {
         robotDriveChooser = new SendableChooser();
         robotDriveChooser.addDefault("Drive With Two Joysticks", RobotDriveType.TANK_DRIVE);
@@ -62,16 +62,24 @@ public class DriveTrain extends Subsystem {
     }
 
     public void driveForward(){
-        double angle = gyro.getAngle(); // get current heading
+        speed = -speed;//sets speed to the negative to work with the drive train
+        double angle = RobotMap.gyro.getAngle(); // get current heading
         System.out.println(angle);
-        robotDrive21.drive(-1, drift+angle*0.03); // drive towards heading 0
+        robotDrive21.drive(speed, DRIFT+angle*0.03); // drive towards heading 0
         Timer.delay(0.004);
     }
     public void resetGyro(){
-        gyro.reset();
+        RobotMap.gyro.reset();
     }
 
     public void driveBackward() {
-        //Put stuff here
+        double angle = RobotMap.gyro.getAngle(); // get current heading
+        System.out.println(angle);
+        robotDrive21.drive(speed, DRIFT+angle*0.03); // drive towards heading 0
+        Timer.delay(0.004);
+    }
+    
+    public void setSpeed(double speedImput){
+        speed = speedImput;
     }
 }

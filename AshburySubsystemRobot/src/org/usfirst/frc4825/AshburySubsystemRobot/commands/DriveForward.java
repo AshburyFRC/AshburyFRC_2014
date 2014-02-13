@@ -22,6 +22,7 @@ public class DriveForward extends Command {
 
     //Vars
     private double time;
+    private double speed;
 
     public DriveForward() {
         // Use requires() here to declare subsystem dependencies
@@ -31,8 +32,10 @@ public class DriveForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        time = SmartDashboard.getNumber("Time of driving forward");
+        time = SmartDashboard.getNumber("Time of driving forward", 5.0);
         setTimeout(time);
+        speed = SmartDashboard.getNumber("Autonomus Speed", 0.5);
+        Robot.driveTrain.setSpeed(speed);
         Robot.driveTrain.resetGyro();
         UserMessagePrinter.printUserMessageLine1("moving forward");
         System.out.println("initilize forward drive");
