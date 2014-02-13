@@ -14,9 +14,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class readyHammer extends CommandGroup {
+public class shootWithHammer extends CommandGroup {
 
-    public readyHammer() {
+    public shootWithHammer() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -32,7 +32,7 @@ public class readyHammer extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-        addSequential(new pullBackHammer());
-        addSequential(new resetLoadBar());
+        addSequential(new releaseHammer());
+        addSequential(new resetLatch());
     }
 }

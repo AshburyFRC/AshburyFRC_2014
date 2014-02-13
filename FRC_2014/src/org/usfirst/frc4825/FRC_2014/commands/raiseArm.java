@@ -28,9 +28,7 @@ public class raiseArm extends Command {
         if (!Robot.arms.isArmUp()) {
             System.out.println("Raising arm");
             Robot.arms.moveArm(ArmPos.UP);
-        }
-        else
-        {
+        } else {
             System.out.println("Error: arm is already up");
         }
     }
@@ -49,5 +47,6 @@ public class raiseArm extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
         end();
+        System.out.println("raiseArm interrupted");
     }
 }

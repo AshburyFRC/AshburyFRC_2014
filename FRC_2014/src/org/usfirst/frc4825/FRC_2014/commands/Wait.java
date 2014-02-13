@@ -23,6 +23,7 @@ public class Wait extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        System.out.println("Initialize Wait");
         setTimeout(SmartDashboard.getNumber("Time of waiting"));
     }
     // Called repeatedly when this Command is scheduled to run
@@ -34,10 +35,12 @@ public class Wait extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("End Wait");
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
         end();
+        System.out.println("Wait interrupted");
     }
 }

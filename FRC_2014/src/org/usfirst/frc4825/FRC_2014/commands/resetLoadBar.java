@@ -25,14 +25,12 @@ public class resetLoadBar extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         setTimeout(SmartDashboard.getNumber("Max Load Bar Reset Time"));
-        System.out.println("Initialize resetLoadBar()");
+        System.out.println("Initialize resetLoadBar");
         if (!Robot.hammer.isHammerAtReset()) {
-            System.out.println("resetting load bar");
+            System.out.println("Resetting load bar" + SmartDashboard.getNumber("Hammer Motor Speed"));
             Robot.hammer.reverseHammer((float) SmartDashboard.getNumber("Hammer Motor Speed"));
-        }
-        else
-        {
-            System.out.println("Error: hammer is already reset");
+        } else {
+            System.out.println("Error: load bar is already at reset");
         }
     }
     // Called repeatedly when this Command is scheduled to run
@@ -45,11 +43,12 @@ public class resetLoadBar extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.hammer.stopMotor();
-        System.out.println("End loadBar");
+        System.out.println("End resetLoadBar");
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
         end();
+        System.out.println("resetLoadBar interrupted");
     }
 }

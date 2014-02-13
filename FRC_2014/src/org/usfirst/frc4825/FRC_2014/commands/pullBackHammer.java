@@ -27,12 +27,10 @@ public class pullBackHammer extends Command {
         System.out.println("Initialize pullBackHammer");
         setTimeout(SmartDashboard.getNumber("Max Hammer Pullback Time"));
         if (!Robot.hammer.isHammerAtLatch()) {
-            System.out.println("Pull Back Hammer " + SmartDashboard.getNumber("Hammer Motor Speed"));
-            Robot.hammer.pullBackHammer((float)SmartDashboard.getNumber("Hammer Motor Speed"));
-        }
-        else
-        {
-            System.out.println("Hammer is already at latch");
+            System.out.println("Pulling back hammer " + SmartDashboard.getNumber("Hammer Motor Speed"));
+            Robot.hammer.pullBackHammer((float) SmartDashboard.getNumber("Hammer Motor Speed"));
+        } else {
+            System.out.println("Error: Hammer is already at latch");
         }
     }
     // Called repeatedly when this Command is scheduled to run
@@ -51,5 +49,6 @@ public class pullBackHammer extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
         end();
+        System.out.println("pullBackHammer interrupted");
     }
 }

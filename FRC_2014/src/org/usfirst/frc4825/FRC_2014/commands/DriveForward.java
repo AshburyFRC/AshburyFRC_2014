@@ -25,13 +25,12 @@ public class DriveForward extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        System.out.println("Initilize DriveForward");
         setTimeout(SmartDashboard.getNumber("Time of driving forward"));
-        UserMessagePrinter.printUserMessageLine1("moving forward");
-        System.out.println("initilize forward drive");
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.driveTrain.DriveForward();
+        Robot.driveTrain.driveForward();
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
@@ -40,12 +39,12 @@ public class DriveForward extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.driveTrain.stop();
-        UserMessagePrinter.printUserMessageLine1("");
-        System.out.println("end drive forward");
+        System.out.println("End DriveForward");
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
         end();
+        System.out.println("DriveForward interrupted");
     }
 }
