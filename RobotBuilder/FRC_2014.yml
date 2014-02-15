@@ -169,7 +169,7 @@ Children:
           default: '1'
           name: Output Channel (PWM)
           validators: *id005
-          value: '5'
+          value: '7'
     - Name: LatchSolenoid
       Base: Solenoid
       Children: []
@@ -212,7 +212,7 @@ Children:
           default: '1'
           name: Input Channel (Digital)
           validators: *id007
-          value: '2'
+          value: '4'
         Input Module (Digital): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id008
           default: '1'
@@ -246,7 +246,7 @@ Children:
           default: '1'
           name: Output Channel (PWM)
           validators: *id005
-          value: '6'
+          value: '5'
     - Name: RightArmBeltMotorController
       Base: Speed Controller
       Children: []
@@ -268,7 +268,7 @@ Children:
           default: '1'
           name: Output Channel (PWM)
           validators: *id005
-          value: '7'
+          value: '6'
     - Name: ArmPositionSolenoid
       Base: Solenoid
       Children: []
