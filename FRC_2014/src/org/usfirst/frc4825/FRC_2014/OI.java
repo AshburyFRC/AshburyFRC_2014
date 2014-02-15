@@ -71,9 +71,9 @@ public class OI {
         SmartDashboard.putNumber("Time of waiting", 0.0);
         SmartDashboard.putNumber("Hammer Motor Speed", 1.0);
         SmartDashboard.putNumber("Arm Motor Speed", 1.0);
-        SmartDashboard.putNumber("Max Hammer Pullback Time", 5.0);
+        SmartDashboard.putNumber("Max Hammer Pullback Time", 7.0);
         SmartDashboard.putNumber("Timed Hammer Pullback", 1.0);
-        SmartDashboard.putNumber("Max Load Bar Reset Time", 5.0);
+        SmartDashboard.putNumber("Max Load Bar Reset Time", 7.0);
         SmartDashboard.putBoolean("Hammer reset", false);
         
         SmartDashboard.putData("switchTest", new switchTest());
