@@ -56,7 +56,7 @@ public class RobotMap {
         driveTrainRobotDrive41.setExpiration(0.1);
         driveTrainRobotDrive41.setSensitivity(0.5);
         driveTrainRobotDrive41.setMaxOutput(1.0);
-        hammerHammerMotorController = new Victor(1, 5);
+        hammerHammerMotorController = new Victor(1, 7);
 	LiveWindow.addActuator("Hammer", "HammerMotorController", (Victor) hammerHammerMotorController);
         
         hammerLatchSolenoid = new Solenoid(1, 1);
@@ -65,13 +65,13 @@ public class RobotMap {
         hammerHammerLatchSwitch = new DigitalInput(1, 1);
 	LiveWindow.addSensor("Hammer", "HammerLatchSwitch", hammerHammerLatchSwitch);
         
-        hammerShaftResetSwitch = new DigitalInput(1, 2);
+        hammerShaftResetSwitch = new DigitalInput(1, 4);
 	LiveWindow.addSensor("Hammer", "ShaftResetSwitch", hammerShaftResetSwitch);
         
-        armsLeftArmBeltMotorController = new Victor(1, 6);
+        armsLeftArmBeltMotorController = new Victor(1, 5);
 	LiveWindow.addActuator("Arms", "LeftArmBeltMotorController", (Victor) armsLeftArmBeltMotorController);
         
-        armsRightArmBeltMotorController = new Victor(1, 7);
+        armsRightArmBeltMotorController = new Victor(1, 6);
 	LiveWindow.addActuator("Arms", "RightArmBeltMotorController", (Victor) armsRightArmBeltMotorController);
         
         armsArmPositionSolenoid = new Solenoid(1, 2);
