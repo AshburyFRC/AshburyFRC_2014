@@ -16,7 +16,7 @@ public class DriveTrain extends Subsystem {
     SpeedController rightMotor1 = RobotMap.driveTrainRightMotor1;
     SpeedController rightMotor2 = RobotMap.driveTrainRightMotor2;
     RobotDrive robotDrive41 = RobotMap.driveTrainRobotDrive41;
-    private final double MOTOR_SMOOTHING_OMEGA = 1.0;
+    private final double MOTOR_SMOOTHING_OMEGA = 0.75;
     private final double DRIFT = 0.0;
     private double speed;
 

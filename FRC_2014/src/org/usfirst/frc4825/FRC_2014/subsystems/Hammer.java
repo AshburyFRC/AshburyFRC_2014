@@ -57,11 +57,11 @@ public class Hammer extends Subsystem {
     public void reverseHammer(float value) {
         if (!isHammerAtReset() && value <= 1.0 && value >= 0.0) {
             setMotor(value);
-            System.out.println("Activate hammer reset");
+            System.out.println("Activate hammer reverse");
         } else if (value > 1.0 || value < 0.0) {
-            System.out.println("Hammer at reset");
+            System.out.println("Hammer reverse value is too big " + value);
         } else {
-            System.out.println("Speed exceeded expected value");
+            System.out.println("Hammer is already at reset");
         }
     }
     public boolean isHammerAtLatch() {
