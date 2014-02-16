@@ -24,12 +24,12 @@ public class Arms extends Subsystem {
             System.out.println("Error : Arm Already At Position");
         }
         else if(armPosToSet == ArmPos.UP){
-            armPositionSolenoid.set(true);
+            armPositionSolenoid.set(false);
             currentArmPos = ArmPos.UP;
             System.out.println("Arms Moved Up");
         }
         else if(armPosToSet == ArmPos.DOWN){
-            armPositionSolenoid.set(false);
+            armPositionSolenoid.set(true);
             currentArmPos = ArmPos.DOWN;
             System.out.println("Armes Moved Down");
         }

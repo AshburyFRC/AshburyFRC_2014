@@ -35,6 +35,9 @@ public class resetLoadBar extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if (Robot.hammer.isHammerAtReset()){
+            SmartDashboard.putBoolean("Bar is Reset", true);
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

@@ -31,15 +31,16 @@ public class refuelPneumatics extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return RobotMap.cmpr.getPressureSwitchValue();
     }
     // Called once after isFinished returns true
     protected void end() {
+        RobotMap.cmpr.stop();
+        System.out.println("refuelPneumatics interrupted");        
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        RobotMap.cmpr.stop();
-        System.out.println("refuelPneumatics interrupted");
+        end();
     }
 }

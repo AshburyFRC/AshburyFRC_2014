@@ -29,15 +29,19 @@ public class pullBackHammer extends Command {
         setTimeout(SmartDashboard.getNumber("Max Hammer Pullback Time"));
         if (!Robot.hammer.isHammerAtLatch()) {
             System.out.println("Pulling back hammer " + SmartDashboard.getNumber("Hammer Motor Speed"));
+            if( Robot.hammer.isLatchReady() )
+                Robot.hammer.releaseLatch();
             Robot.hammer.pullBackHammer((float) SmartDashboard.getNumber("Hammer Motor Speed"));
+            SmartDashboard.putBoolean("Bar is Reset", false);
         } else {
             System.out.println("Error: Hammer is already at latch");
         }
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (RobotMap.hammerHammerLatchSwitch.get() == false) {
+        if( Robot.hammer.isHammerAtLatch() ){
             Robot.hammer.readyLatch();
+            SmartDashboard.putBoolean("Hammer in Latch", true);
         }
     }
     // Make this return true when this Command no longer needs to run execute()

@@ -9,6 +9,7 @@
 // it from being updated in the future.
 package org.usfirst.frc4825.FRC_2014.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4825.FRC_2014.Robot;
 /**
  *
@@ -27,6 +28,7 @@ public class releaseHammer extends Command {
         if (Robot.hammer.isHammerAtLatch()) {
             System.out.println("Releasing hammer");
             Robot.hammer.releaseLatch();
+            SmartDashboard.putBoolean("Hammer in Latch", false);
         } else {
             System.out.println("Error: hammer is not at latch");
         }
