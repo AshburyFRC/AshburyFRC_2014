@@ -15,6 +15,7 @@ import org.usfirst.frc4825.FRC_2014.RobotMap;
  *
  */
 public class refuelPneumatics extends Command {
+    //command which is called from SmartDashboard to refuel pneumatics
     public refuelPneumatics() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

@@ -15,6 +15,7 @@ import org.usfirst.frc4825.FRC_2014.Support.ArmPos;
  *
  */
 public class raiseArm extends Command {
+    //raises arm with solenoid
     public raiseArm() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

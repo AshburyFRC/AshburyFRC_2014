@@ -11,11 +11,11 @@ package org.usfirst.frc4825.FRC_2014.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4825.FRC_2014.Robot;
-import org.usfirst.frc4825.FRC_2014.RobotMap;
 /**
  *
  */
 public class pullBackHammer extends Command {
+    //pulls hammer back while the timout is out or it touches the limit switch 
     public pullBackHammer() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

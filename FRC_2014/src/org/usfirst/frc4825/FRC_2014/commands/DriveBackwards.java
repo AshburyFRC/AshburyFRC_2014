@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class DriveBackwards extends Command {
+    //drives backwards, while timeout is not out
     public DriveBackwards() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

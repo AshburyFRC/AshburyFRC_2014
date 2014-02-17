@@ -10,7 +10,6 @@
 package org.usfirst.frc4825.FRC_2014.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4825.FRC_2014.Robot;
-import org.usfirst.frc4825.FRC_2014.Support.UserMessagePrinter;
 /**
  *
  */

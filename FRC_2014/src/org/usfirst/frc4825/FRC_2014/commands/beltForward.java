@@ -15,6 +15,7 @@ import org.usfirst.frc4825.FRC_2014.Robot;
  *
  */
 public class beltForward extends Command {
+    //sets motors forward on speed from SmartDashboard
     public beltForward() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

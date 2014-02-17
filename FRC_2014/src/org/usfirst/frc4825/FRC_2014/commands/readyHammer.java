@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class readyHammer extends CommandGroup {
-
+    //commadns sequential to load hammer: pull it back and set load bar to ready position
     public readyHammer() {
         // Add Commands here:
         // e.g. addSequential(new Command1());

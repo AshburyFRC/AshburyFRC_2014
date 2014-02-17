@@ -15,6 +15,7 @@ import org.usfirst.frc4825.FRC_2014.Robot;
  *
  */
 public class beltReverse extends Command {
+    //sets motors reverse on speed from SmartDashboard
     public beltReverse() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

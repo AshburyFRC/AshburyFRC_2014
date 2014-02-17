@@ -15,6 +15,7 @@ import org.usfirst.frc4825.FRC_2014.Support.ArmPos;
  *
  */
 public class lowerArm extends Command {
+    //sets arms in down position with solenoid
     public lowerArm() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
