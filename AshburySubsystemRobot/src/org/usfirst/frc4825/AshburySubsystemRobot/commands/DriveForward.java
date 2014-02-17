@@ -23,6 +23,8 @@ public class DriveForward extends Command {
     //Vars
     private double time;
     private double speed;
+    private int distance;
+    private boolean doneDriving;
 
     public DriveForward() {
         // Use requires() here to declare subsystem dependencies
@@ -32,23 +34,26 @@ public class DriveForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        time = SmartDashboard.getNumber("Time of driving forward", 5.0);
-        setTimeout(time);
-        speed = SmartDashboard.getNumber("Autonomus Speed", 0.5);
+        //time = SmartDashboard.getNumber("Time of driving forward", 5.0);
+        //setTimeout(time);
+        speed = 0.8;
         Robot.driveTrain.setSpeed(speed);
         Robot.driveTrain.resetGyro();
+        distance = 1500;
         UserMessagePrinter.printUserMessageLine1("moving forward");
         System.out.println("initilize forward drive");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute(){
-        Robot.driveTrain.driveForward();
+        //Robot.driveTrain.driveForward();
+        doneDriving = Robot.driveTrain.driveToRange(distance);
+        Timer.delay(0.004);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return doneDriving;
     }
 
     // Called once after isFinished returns true
