@@ -33,6 +33,7 @@ public class readyHammer extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         addSequential(new pullBackHammer());
+        addSequential( new Wait(0.25) );
         addSequential(new resetLoadBar());
     }
 }

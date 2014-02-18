@@ -64,7 +64,7 @@ public class Hammer extends Subsystem {
 
     public void reverseHammer(float value) {
         if (!isHammerAtReset() && value <= 1.0 && value >= 0.0) {
-            setMotor(value); //set motor on value to reverse load bar
+            setMotor(-1* value * MOTOR_POLARITY); //set motor on value to reverse load bar
             System.out.println("Activate hammer reverse");
         } else if (value > 1.0 || value < 0.0) {
             System.out.println("Hammer reverse value is too big " + value);

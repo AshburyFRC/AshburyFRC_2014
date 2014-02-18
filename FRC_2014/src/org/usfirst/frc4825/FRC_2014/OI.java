@@ -83,10 +83,10 @@ public class OI {
         SmartDashboard.putNumber("Time of driving forward", 3.0);
         SmartDashboard.putNumber("Time of driving backward", 0.0);
         SmartDashboard.putNumber("Time of waiting", 1.0);
-        SmartDashboard.putNumber("Hammer Motor Speed", 1.0);
+        SmartDashboard.putNumber("Hammer Motor Speed", 0.5);
         SmartDashboard.putNumber("Arm Motor Speed", 1.0);
         SmartDashboard.putNumber("Max Hammer Pullback Time", 10.0);
-        SmartDashboard.putNumber("Max Load Bar Reset Time", 10.0);
+        SmartDashboard.putNumber("Max Load Bar Reset Time", 13.0);
         SmartDashboard.putNumber("Drive Speed", 0.3);
 
         readyHammer = new JoystickButton(joystick1, 3);
