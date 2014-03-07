@@ -17,8 +17,8 @@ public class DriveTrain extends Subsystem {
     SpeedController rightMotor2 = RobotMap.driveTrainRightMotor2;
     RobotDrive robotDrive41 = RobotMap.driveTrainRobotDrive41;
     private final double MOTOR_SMOOTHING_OMEGA = 0.75;
-    //private final double DRIFT = 0.0;
-    private double speed;
+    private final double DRIFT = -0.1;
+    private double mSpeed;
 
     public DriveTrain() {
     }
@@ -69,22 +69,38 @@ public class DriveTrain extends Subsystem {
     public void setMotorOutputs(double leftOutput, double rightOutput) {
         robotDrive41.setLeftRightMotorOutputs(leftOutput, rightOutput);
     }
+    
+    public boolean driveToRange(int destination){
+        mSpeed = SmartDashboard.getNumber("Autonomus Drive Speed");
+        int currentRange = (int)(RobotMap.ultrasonic.getRangeMM());//get distance to wall
+        if(currentRange > destination){//see if distance to wall is at required amount
+            double angle = RobotMap.gyro.getAngle(); // get current heading
+            robotDrive41.drive(mSpeed, DRIFT + angle * 0.03); // drive towards heading 0
+            return false;
+        }
+        else{
+            robotDrive41.drive(0,0);//stop
+            return true;
+        }
+    }
 
-    public void DriveForward() {
-        speed = SmartDashboard.getNumber("Drive Speed");
-        /*double angle = RobotMap.gyro.getAngle(); // get current heading
-         System.out.println(angle);
-         robotDrive41.drive(speed, DRIFT + angle * 0.03); // drive towards heading 0
-         Timer.delay(0.004);*/
-        robotDrive41.drive(speed, 0);
+    public void DriveForwardNoSens() {
+        mSpeed = SmartDashboard.getNumber("Drive Speed");
+        double angle = RobotMap.gyro.getAngle(); // get current heading
+        robotDrive41.drive(mSpeed, DRIFT + angle * 0.03); // drive towards heading 0
+        //robotDrive41.drive(mSpeed, DRIFT);
+        Timer.delay(0.004);
     }
 
     public void DriveBackward() {
-        speed = -SmartDashboard.getNumber("Drive Speed");//sets speed to the negative to work with the drive train
-     /*double angle = RobotMap.gyro.getAngle(); // get current heading
-         System.out.println(angle);
-         robotDrive41.drive(speed, DRIFT + angle * 0.03); // drive towards heading 0
-         Timer.delay(0.004);*/
-        robotDrive41.drive(-speed, 0);
+        mSpeed = -SmartDashboard.getNumber("Drive Speed");//sets speed to the negative to work with the drive train
+        double angle = RobotMap.gyro.getAngle(); // get current heading
+        System.out.println(angle);
+        robotDrive41.drive(mSpeed, DRIFT + angle * 0.03); // drive towards heading 0
+        Timer.delay(0.004);
+    }
+    
+    public void resetGyro(){
+        RobotMap.gyro.reset();
     }
 }

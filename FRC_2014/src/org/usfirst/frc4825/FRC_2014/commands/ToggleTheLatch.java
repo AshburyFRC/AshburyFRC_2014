@@ -6,6 +6,7 @@
 package org.usfirst.frc4825.FRC_2014.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4825.FRC_2014.Robot;
 
 /**
@@ -23,9 +24,11 @@ public class ToggleTheLatch extends Command {
     protected void initialize() {
         if (Robot.hammer.isLatchReady()){
         Robot.hammer.releaseLatch();
+        SmartDashboard.putBoolean("Hammer in Latch", false);
         }
         else{
             Robot.hammer.readyLatch();
+            SmartDashboard.putBoolean("Hammer in Latch", true);
         }
     }
 
