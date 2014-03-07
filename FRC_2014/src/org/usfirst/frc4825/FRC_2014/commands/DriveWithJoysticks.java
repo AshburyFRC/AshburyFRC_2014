@@ -9,7 +9,9 @@
 // it from being updated in the future.
 package org.usfirst.frc4825.FRC_2014.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4825.FRC_2014.Robot;
+import org.usfirst.frc4825.FRC_2014.RobotMap;
 /**
  *
  */
@@ -29,6 +31,7 @@ public class DriveWithJoysticks extends Command {
     protected void execute() {
         Robot.driveTrain.processJoysticksInput(Robot.oi.getJoystick1(),
                 Robot.oi.getJoystick2());
+        SmartDashboard.putNumber("Distance to wall", RobotMap.ultrasonic.getRangeMM());
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

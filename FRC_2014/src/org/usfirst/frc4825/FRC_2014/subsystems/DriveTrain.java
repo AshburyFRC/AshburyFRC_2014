@@ -16,7 +16,7 @@ public class DriveTrain extends Subsystem {
     SpeedController rightMotor1 = RobotMap.driveTrainRightMotor1;
     SpeedController rightMotor2 = RobotMap.driveTrainRightMotor2;
     RobotDrive robotDrive41 = RobotMap.driveTrainRobotDrive41;
-    private final double MOTOR_SMOOTHING_OMEGA = 0.75;
+    private final double MOTOR_SMOOTHING_OMEGA = 1.0;
     private final double DRIFT = -0.1;
     private double mSpeed;
 
@@ -53,7 +53,6 @@ public class DriveTrain extends Subsystem {
                 // tank drive
                 robotDrive41.tankDrive(-MOTOR_SMOOTHING_OMEGA * stick1.getAxis(Joystick.AxisType.kY),
                         -MOTOR_SMOOTHING_OMEGA * stick2.getAxis(Joystick.AxisType.kY), true);
-                System.out.println("do two joystick tank drive.");
             } else if (driveType == RobotDriveType.ARCADE_DRIVE) {
                 // arcade drive
                 robotDrive41.arcadeDrive(-MOTOR_SMOOTHING_OMEGA * stick1.getAxis(Joystick.AxisType.kY),
@@ -86,10 +85,7 @@ public class DriveTrain extends Subsystem {
 
     public void DriveForwardNoSens() {
         mSpeed = SmartDashboard.getNumber("Drive Speed");
-        double angle = RobotMap.gyro.getAngle(); // get current heading
-        robotDrive41.drive(mSpeed, DRIFT + angle * 0.03); // drive towards heading 0
-        //robotDrive41.drive(mSpeed, DRIFT);
-        Timer.delay(0.004);
+        robotDrive41.drive(mSpeed, 0.0); // drive towards heading 0
     }
 
     public void DriveBackward() {

@@ -83,7 +83,7 @@ public class RobotMap {
         //pressureSwitch = new DigitalInput(1,8);
 
         gyro = new Gyro(1);
-        ultrasonic = new Ultrasonic(11, 12);
+        ultrasonic = new Ultrasonic(11, 10);
         ultrasonic.setEnabled(true);
         ultrasonic.setAutomaticMode(true);
     }
